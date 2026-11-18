@@ -37,3 +37,11 @@ These are starter components only. They have not yet been compiled or play-teste
 - `MAGIC_BINDING_SETUP.md` — Inspector wiring and villain spell connection instructions.
 
 Ordinary villain attacks are not intended to damage Muni. The magic binding is a temporary control effect. The new script has not yet been compiled or play-tested in Unity.
+
+
+## Villain combat and stealth AI
+
+- `Scripts/MuniVillainTacticsAI.cs` — villain combat, chase, retreat, hide-point behaviour, and optional green-rope spell casting.
+- `VILLAIN_AI_SETUP.md` — setup guide and suggested styles for the three villains.
+
+This remains a prototype and has not yet been compiled or play-tested in Unity.
