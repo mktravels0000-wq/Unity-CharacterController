@@ -29,3 +29,11 @@ These are starter components only. They have not yet been compiled or play-teste
 - Spear combat uses an overlap sphere in front of the player; tune its position and collision layers in a real scene.
 - Transformation only swaps visual GameObjects. It does not yet add divine abilities, animation, effects, or stat changes.
 - Use original or properly licensed character art, audio, and other assets. Preserve the existing starter project's MIT license and copyright notice.
+
+
+## Magic binding
+
+- `Scripts/MuniMagicBinding.cs` — freezes Muni and displays an assigned green-rope prefab for 10 seconds when the villain spell calls `ApplyBinding()`.
+- `MAGIC_BINDING_SETUP.md` — Inspector wiring and villain spell connection instructions.
+
+Ordinary villain attacks are not intended to damage Muni. The magic binding is a temporary control effect. The new script has not yet been compiled or play-tested in Unity.
