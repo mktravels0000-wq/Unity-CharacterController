@@ -13,27 +13,31 @@ namespace MuniGame
         [Header("MUNI Actions")]
         [SerializeField] private MuniSpearCombat spearCombat;
         [SerializeField] private MuniTransformation transformation;
+        [SerializeField] private MuniClueDetector clueDetector;
 
         [Header("PC Controls")]
         [SerializeField] private Key transformationKey = Key.Q;
+        [SerializeField] private Key clueScanKey = Key.E;
 
         private void Update()
         {
             Keyboard keyboard = Keyboard.current;
-            if (keyboard != null && keyboard[transformationKey].wasPressedThisFrame)
+            if (keyboard != null)
             {
-                ToggleTransformation();
+                if (keyboard[transformationKey].wasPressedThisFrame)
+                    ToggleTransformation();
+
+                if (keyboard[clueScanKey].wasPressedThisFrame)
+                    ScanForClues();
             }
 
             Mouse mouse = Mouse.current;
             if (mouse != null && mouse.leftButton.wasPressedThisFrame)
-            {
                 Attack();
-            }
         }
 
         /// <summary>
-        /// Can be called by a mobile UI Button or UnityEvent.
+        /// PC default: Left Mouse. Can also be called by a mobile UI Button.
         /// </summary>
         public void Attack()
         {
@@ -42,12 +46,21 @@ namespace MuniGame
         }
 
         /// <summary>
-        /// PC default: Q. Can also be called by a mobile UI Button or UnityEvent.
+        /// PC default: Q. Can also be called by a mobile UI Button.
         /// </summary>
         public void ToggleTransformation()
         {
             if (transformation != null)
                 transformation.ToggleTransformation();
+        }
+
+        /// <summary>
+        /// PC default: E. Can also be called by a mobile UI Button or spear-ground impact event.
+        /// </summary>
+        public void ScanForClues()
+        {
+            if (clueDetector != null)
+                clueDetector.ScanForClues();
         }
     }
 }
