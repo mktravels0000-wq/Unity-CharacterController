@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MuniGame
@@ -106,10 +107,11 @@ namespace MuniGame
             int phaseMultiplier = bossHealth != null ? bossHealth.CurrentPhase : 1;
             int damage = baseDamage * phaseMultiplier;
 
+            HashSet<MuniHealth> damagedTargets = new HashSet<MuniHealth>();
             for (int i = 0; i < hits.Length; i++)
             {
                 MuniHealth hitHealth = hits[i].GetComponentInParent<MuniHealth>();
-                if (hitHealth != null && hitHealth != ownHealth)
+                if (hitHealth != null && hitHealth != ownHealth && damagedTargets.Add(hitHealth))
                     hitHealth.TakeDamage(damage);
             }
         }
