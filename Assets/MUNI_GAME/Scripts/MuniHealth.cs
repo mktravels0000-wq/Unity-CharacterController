@@ -9,6 +9,7 @@ namespace MuniGame
     {
         [SerializeField, Min(1)] private int maxHealth = 100;
         [SerializeField] private bool destroyOnZero;
+        [SerializeField] private bool damageImmune;
 
         public int MaxHealth => maxHealth;
         public int CurrentHealth { get; private set; }
@@ -22,7 +23,7 @@ namespace MuniGame
 
         public void TakeDamage(int amount)
         {
-            if (amount <= 0 || IsDefeated) return;
+            if (damageImmune || amount <= 0 || IsDefeated) return;
 
             CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
 
